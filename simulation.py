@@ -170,6 +170,8 @@ class simulation:
 
             #update die Koordinaten, Status und Farben der Agenten
             self.__updateCoordinates()
+
+            #Hier der Spaß funkioniert noch nicht so gut 
             self.__updateStates()
             self.__updateColors()
 
