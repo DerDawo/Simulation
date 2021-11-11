@@ -195,6 +195,10 @@ class simulation:
             ax2.relim()
             ax2.autoscale_view()
 
+            #Ist die Anzahl der aktiv infizierten = 0, beende die Simmulation 
+            if(self.InfAmmountList[len(self.InfAmmountList)-1]==0):
+                return
+
         ani = matplotlib.animation.FuncAnimation(fig, animate, frames=FPS*self.duration, interval=iv, repeat=self.extinctDiseas) 
         plt.show()
 
