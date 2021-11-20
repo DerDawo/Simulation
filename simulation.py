@@ -31,11 +31,11 @@ class simulation:
             xPos = random.random()*self.Environment.xDimension
             yPos = random.random()*self.Environment.yDimension
             if(self.stateList[i] == "s"):
-                agList.append(ag.agent(i,ag.position(xPos,yPos),True,False,False))
+                agList.append(ag.agent(i,ag.position(xPos,yPos),True,False,False,self.Environment))
             elif(self.stateList[i] == "i"):
-                agList.append(ag.agent(i,ag.position(xPos,yPos),False,True,False))
+                agList.append(ag.agent(i,ag.position(xPos,yPos),False,True,False,self.Environment))
             elif(self.stateList[i] == "r"):
-                agList.append(ag.agent(i,ag.position(xPos,yPos),False,False,True))
+                agList.append(ag.agent(i,ag.position(xPos,yPos),False,False,True,self.Environment))
         return agList
 
     #Setze die Koordinaten der Agenten in einen x- und y- Array fest
@@ -149,7 +149,7 @@ class simulation:
         def animate(i):
             #Bewege jeden einzelnen Agenten
             for i in range(self.Environment.populationAmmount):
-                self.agentList[i].move(self.direction[i],self.Environment.xDimension,self.Environment.yDimension)
+                self.agentList[i].move(self.direction[i],self.Environment.xDimension,self.Environment.yDimension,self.agentList)
             
             #checke den Status jedes Agenten und führe die dazugehörige Operation aus.
             for i in range(self.Environment.populationAmmount):
@@ -184,8 +184,8 @@ class simulation:
             self.TimeCounter += 1
 
             #Update die Daten der Simualtion (Koordinaten der Agenten)
-            sc.set_offsets(np.c_[self.xCoordinates,self.yCoordinates])
             sc.set_facecolor(self.colorList)
+            sc.set_offsets(np.c_[self.xCoordinates,self.yCoordinates])
             
             #Update die Daten der Verbreitung (Kennzahlen der Gruppen)
             pl1.set_data(self.TimeList,self.SusAmmountList)

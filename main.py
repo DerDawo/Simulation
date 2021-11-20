@@ -3,8 +3,8 @@ import virus as vir
 import simulation as sim
 
 #initialisere eine Umgebung
-#environment(name -str, xDimension -int, yDimension -int, populationAmmount -int, distance -float, hasMasks -bool, hasAusgangssperre -bool, hasLockdown-bool)
-env1 = env.environment("Environment 1",50,50,100,0,False,False,False)
+#environment(name -str, xDimension -int, yDimension -int, populationAmmount -int, distance to Keep from other agents -float, hasMasks -bool, hasAusgangssperre -bool, hasLockdown-bool)
+env1 = env.environment("Environment 1",60,60,100,1,False,False,False)
 
 #initialisiere einen Virus
 #virus(name -str, infectionRadius -float, infectionProbability -float, incubationTime -int, infectionTime -int, deathProbability -float)
